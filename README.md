@@ -1,6 +1,6 @@
-# Clarification
+# Tri-Faith-Exegesis
 
-用大模型思维链阐释佛教、基督教、伊斯兰教**全量原典**，并**以后人注疏为 Ground Truth（GT）**做对齐评估与知识图谱导出。
+用大模型思维链阐释佛教、基督教、伊斯兰教**全量原典**，并 **以后人注疏为 Ground Truth（GT）** 做对齐评估与知识图谱导出。
 
 支持 **ChatGPT（OpenAI） / Claude（Anthropic） / Gemini（Google）**，通过 `.env` 切换。
 
