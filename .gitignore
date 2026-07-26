@@ -1,0 +1,41 @@
+# Secrets & local env
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Generated runtime data (large; rebuild via crawl/batch)
+data/raw/
+data/processed/
+data/graphs/
+data/interpretations/
+data/comparisons/
+data/corpus/
+data/gt/
+data/gt_structured/
+data/alignments/
+data/jobs/
+data/gt_sources/
+data/cache/
+
+# PyVis / local frontend vendor dumps
+lib/
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
