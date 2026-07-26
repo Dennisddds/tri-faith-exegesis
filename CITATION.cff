@@ -1,9 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Tri-Faith Exegesis"
+title: "Tri-Faith-Exegesis"
 type: software
 authors:
   - name: "Dennisddds"
+    email: dengsiyang@hust.edu.cn
+    affiliation: "Huazhong University of Science and Technology"
 repository-code: "https://github.com/Dennisddds/tri-faith-exegesis"
 url: "https://github.com/Dennisddds/tri-faith-exegesis"
 abstract: >-

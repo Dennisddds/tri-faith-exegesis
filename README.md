@@ -154,12 +154,18 @@ Issues, PRs, and dataset/GT contributions are welcome — see [CONTRIBUTING.md](
 
 ---
 
+## Author / Contact
+
+- GitHub: [Dennisddds](https://github.com/Dennisddds)
+- Email: [dengsiyang@hust.edu.cn](mailto:dengsiyang@hust.edu.cn)
+
 ## Citation
 
 ```bibtex
 @software{tri_faith_exegesis,
   title  = {Tri-Faith-Exegesis: LLM Chain-of-Thought Scripture Interpretation with Commentary GT Alignment},
   author = {Dennisddds},
+  email  = {dengsiyang@hust.edu.cn},
   year   = {2026},
   url    = {https://github.com/Dennisddds/tri-faith-exegesis}
 }

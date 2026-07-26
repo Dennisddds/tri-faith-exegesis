@@ -33,3 +33,7 @@ Use a small `--limit` / `--max-surah` when testing to avoid high API cost.
 ## Code of conduct (short)
 
 Be respectful of religious traditions and of other contributors. This project aims at scholarly comparison, not polemic.
+
+## Contact
+
+Maintainer: [dengsiyang@hust.edu.cn](mailto:dengsiyang@hust.edu.cn)
