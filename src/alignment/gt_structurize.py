@@ -4,30 +4,30 @@ from __future__ import annotations
 
 import json
 import re
-from pathlib import Path
 from typing import Any
 
 from config import DATA_DIR
 from src.corpus.schema import GTUnit
-from src.llm.deepseek_client import DeepSeekClient
 from src.llm.chain_of_thought import _extract_json
+from src.llm.deepseek_client import DeepSeekClient
 
 GT_STRUCT_DIR = DATA_DIR / "gt_structured"
 
-SYSTEM = """你是注疏结构化助手。将后人注疏文本转写为与模型阐释相同的 JSON schema。
-这是 ground-truth 结构化，不要掺入你自己的新教义发明；只能压缩/归纳注疏已有内容。
-若注疏未提及某字段，用空字符串或空数组。输出合法 JSON，不要 Markdown 围栏。
+SYSTEM = """You are a commentary structuring assistant. Rewrite later commentary text into the same JSON schema used for model interpretations.
+This is ground-truth structuring: do not invent new doctrine; only compress / organize what the commentary already says.
+If a field is not attested in the commentary, use an empty string or empty array. Output valid JSON only (no Markdown fences).
+Write field values in English; keep original-language terms where they appear.
 """
 
-USER = """传统: {tradition}
-对齐原典单元: {aligns_to}
-注疏作者: {author}
-注疏著作: {work}
+USER = """Tradition: {tradition}
+Aligned scripture unit: {aligns_to}
+Commentary author: {author}
+Commentary work: {work}
 
-【注疏文本】
+[Commentary text]
 {text}
 
-输出 schema：
+Return schema:
 {{
   "ref": "{aligns_to}",
   "tradition": "{tradition}",

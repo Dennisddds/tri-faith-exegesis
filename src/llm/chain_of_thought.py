@@ -114,7 +114,7 @@ def interpret_passage(
         ref=ref,
         title=title,
         primary_text=primary_use,
-        secondary_text=secondary_use or "(无)",
+        secondary_text=secondary_use or "(none)",
     )
     resp = client.chat(
         [

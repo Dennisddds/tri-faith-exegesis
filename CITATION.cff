@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Tri-Faith Exegesis"
+type: software
+authors:
+  - name: "Dennisddds"
+repository-code: "https://github.com/Dennisddds/tri-faith-exegesis"
+url: "https://github.com/Dennisddds/tri-faith-exegesis"
+abstract: >-
+  LLM chain-of-thought exegesis for Buddhist, Christian, and Islamic scriptures,
+  with later commentaries as ground truth, alignment scoring, and knowledge-graph export.
+keywords:
+  - comparative religion
+  - large language models
+  - chain-of-thought
+  - knowledge graph
+  - Qur'an
+  - Bible
+  - Tipitaka
+  - exegesis
+  - digital humanities
+license: Apache-2.0
+version: 0.1.0
+date-released: "2026-07-26"

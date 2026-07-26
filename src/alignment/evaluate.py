@@ -15,21 +15,20 @@ from src.llm.chain_of_thought import _extract_json
 from src.llm.deepseek_client import DeepSeekClient
 from src.llm.prompts import COMPARE_SYSTEM
 
-ALIGN_PROMPT = """你正在做「以注疏为 Ground Truth」的对齐评估。
-模型阐释是 prediction；后人注疏结构化结果是 GT。
-请评估 prediction 相对 GT 的覆盖与偏离，并打分。
-输出合法 JSON，不要 Markdown 围栏。
+ALIGN_PROMPT = """You are evaluating alignment where later commentary is Ground Truth (GT).
+The model interpretation is the prediction; the structured commentary is GT.
+Score how well the prediction covers and stays faithful to the GT. Output valid JSON only (no Markdown fences).
 
-传统: {tradition}
-单元: {ref}
+Tradition: {tradition}
+Unit: {ref}
 
-【GT 结构化注疏】
+[GT structured commentary]
 {gt_structured}
 
-【模型阐释 prediction】
+[Model prediction]
 {pred}
 
-输出：
+Return:
 {{
   "ref": "{ref}",
   "gt_id": "{gt_id}",
@@ -41,13 +40,13 @@ ALIGN_PROMPT = """你正在做「以注疏为 Ground Truth」的对齐评估。
     "overall": 0.0
   }},
   "matched_concepts": ["..."],
-  "missing_concepts_vs_gt": ["GT有而模型缺"],
-  "extra_concepts_vs_gt": ["模型有而GT无（可能幻觉或合理补充）"],
+  "missing_concepts_vs_gt": ["present in GT but missing in model"],
+  "extra_concepts_vs_gt": ["present in model but not in GT (possible hallucination or fair addition)"],
   "relation_matches": ["..."],
   "relation_mismatches": ["..."],
-  "verdict": "一句话：模型相对该GT的对齐质量"
+  "verdict": "one sentence on alignment quality relative to this GT"
 }}
-说明：分数均为 0 到 1；hallucination_penalty 越高表示相对 GT 的无据发挥越多。
+All scores are 0–1. Higher hallucination_penalty means more unsupported invention relative to GT.
 """
 
 
@@ -132,7 +131,7 @@ def llm_align(
 ) -> dict[str, Any]:
     resp = client.chat(
         [
-            {"role": "system", "content": COMPARE_SYSTEM + "\n本次任务将注疏视为 Ground Truth。"},
+            {"role": "system", "content": COMPARE_SYSTEM + "\nFor this task, treat the commentary as Ground Truth."},
             {
                 "role": "user",
                 "content": ALIGN_PROMPT.format(
